@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang-key="pranam"></title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <style>
+      nav {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        animation-delay: none;
+      }
+
+      .back-btn:hover {
+        transform: scale(1.15);
+      }
+
+      .home-btn:hover {
+        transform: translate(-50%, -50%) scale(1.15) !important;
+      }
+
+      .background-layer {
+        position: absolute;
+        width: 70vw;
+        height: 30vw;
+        display: block;
+        overflow: visible;
+        pointer-events: none;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .background-layer img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        top: 50%;
+        left: 50%;
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        will-change: transform, opacity;
+      }
+
+      .left-layer {
+        animation: moveLeftLayer 0.5s ease forwards;
+        animation-delay: 0.5s;
+      }
+
+      .right-layer {
+        animation: moveRightLayer 0.5s ease forwards;
+        animation-delay: 0.5s;
+      }
+
+      @keyframes moveLeftLayer {
+        0% {
+          transform: translate(-50%, -50%) translateX(0);
+          opacity: 1;
+        }
+
+        70% {
+          transform: translate(-50%, -50%) translateX(-18vw);
+          opacity: 0.6;
+        }
+
+        100% {
+          transform: translate(-50%, -50%) translateX(-16vw);
+          opacity: 0.6;
+        }
+      }
+
+      @keyframes moveRightLayer {
+        0% {
+          transform: translate(-50%, -50%) translateX(0);
+          opacity: 1;
+        }
+
+        70% {
+          transform: translate(-50%, -50%) translateX(18vw);
+          opacity: 0.6;
+        }
+
+        100% {
+          transform: translate(-50%, -50%) translateX(17vw);
+          opacity: 0.6;
+        }
+      }
+
+      .main > div {
+        opacity: 0;
+        transform: scale(0.85);
+        animation: fadeScaleIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation-delay: 0.8s;
+        will-change: transform, opacity;
+      }
+
+      @keyframes fadeScaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.85);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="background-layer">
+      <img class="left-layer" src="assets/images/wheel 1.png" alt="" />
+      <img class="right-layer" src="assets/images/wheel 1.png" alt="" />
+    </div>
+
+    <a
+      class="back-btn"
+      href="topic-6.html"
+      style="
+        width: 3vw;
+        height: 3vw;
+        line-height: 0;
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        border: 0.2vw solid white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        transition: transform 0.3s ease;
+      "
+    >
+      <i style="font-size: 1.2vw" class="fa-solid fa-arrow-left-long"></i>
+    </a>
+
+    <nav>
+      <div class="navbar-language">
+        <div class="english-button lang-active">E</div>
+        <div class="hindi-button">H</div>
+        <div class="gujrati-button">G</div>
+      </div>
+    </nav>
+
+    <div
+      class="main"
+      style="
+        margin-top: 4vw;
+        width: 100%;
+        height: auto;
+        padding: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div style="position: relative; width: 40%; height: auto">
+        <div
+          style="
+            position: absolute;
+            top: 23%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5vw;
+            color: #a54211;
+          "
+          data-lang-key="pranam"
+        >
+          Pranam
+        </div>
+
+        <img src="assets/images/pranam-image.png" alt="" width="100%" />
+
+        <a
+          href="index.html"
+          class="home-btn home-btn-1"
+          style="
+            width: 40%;
+            position: absolute;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+          "
+        >
+          <img
+            src="assets/images/pranam-home-btn.png"
+            style="width: 100%"
+            alt=""
+          />
+        </a>
+      </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+
+    <script>
+      // ---------------- AUDIO SETUP ----------------
+
+      const pageLoadAudio = new Audio("assets/audio/pranam.mp3");
+
+      const englishAudio = new Audio("assets/audio/Eng.mpeg");
+      const hindiAudio = new Audio("assets/audio/Hin.mpeg");
+      const gujratiAudio = new Audio("assets/audio/Guj.mpeg");
+
+      const backAudio = new Audio("assets/audio/pop.mp3");
+      const homeAudio = new Audio("./assets/audio/transition/5.mp3");
+
+      const allAudios = [
+        pageLoadAudio,
+        englishAudio,
+        hindiAudio,
+        gujratiAudio,
+        backAudio,
+        homeAudio,
+      ];
+
+      allAudios.forEach((audio) => {
+        audio.preload = "auto";
+      });
+
+      function playSound(audio) {
+        if (!audio) return;
+
+        allAudios.forEach((item) => {
+          if (item !== audio) {
+            item.pause();
+            item.currentTime = 0;
+          }
+        });
+
+        audio.currentTime = 0;
+
+        audio.play().catch(() => {
+          console.log("Audio blocked by browser autoplay policy.");
+        });
+      }
+
+      function playSoundThenGo(audio, url) {
+        playSound(audio);
+
+        setTimeout(() => {
+          window.location.href = url;
+        }, 450);
+      }
+
+      // Page load / refresh audio only
+      window.addEventListener("load", () => {
+        playSound(pageLoadAudio);
+      });
+
+      // Language button audio
+      document.querySelector(".english-button")?.addEventListener("click", () => {
+        playSound(englishAudio);
+      });
+
+      document.querySelector(".hindi-button")?.addEventListener("click", () => {
+        playSound(hindiAudio);
+      });
+
+      document.querySelector(".gujrati-button")?.addEventListener("click", () => {
+        playSound(gujratiAudio);
+      });
+
+      // Back button audio
+      document.querySelector(".back-btn")?.addEventListener("click", (e) => {
+        e.preventDefault();
+        playSoundThenGo(backAudio, "topic-6.html");
+      });
+
+      // Home button audio
+      document.querySelector(".home-btn-1")?.addEventListener("click", (e) => {
+        e.preventDefault();
+        playSoundThenGo(homeAudio, "index.html");
+      });
+    </script>
+  </body>
+</html>

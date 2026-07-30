@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="English">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who is a Jain Sadhu?</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body class="">
+    <div class="background-layer">
+      <img class="left-layer" src="assets/images/wheel 1.png" alt="" />
+      <img class="right-layer" src="assets/images/wheel 1.png" alt="" />
+    </div>
+
+    <div class="container">
+      <!-- Hero image: Jain Sadhu with arch, centred -->
+      <div class="hero-image">
+        <img
+          src="assets/images/hero-image.png"
+          alt="Jain Sadhu"
+          class="mascot-img"
+        />
+      </div>
+
+      <!-- Language nav — top-right, Environment reference pattern -->
+      <nav>
+        <div class="navbar-language">
+          <div class="english-button lang-active">E</div>
+          <div class="hindi-button">H</div>
+          <div class="gujrati-button">G</div>
+        </div>
+      </nav>
+
+      <!-- Page title -->
+      <h1 class="page-title" data-lang-key="title">Who is a Jain Sadhu?</h1>
+
+      <!-- Left Topics Group: topic-1, topic-2, topic-3 -->
+      <div class="topics-group topics-left">
+        <a href="topic-1.html" class="topic-card" id="topic-1">
+          <div class="card-bg">
+            <img src="assets/images/topic-image.png" alt="" />
+            <span class="topic-num" data-lang-key="num-1">1</span>
+            <p class="topic-text" data-lang-key="topic-1">
+              Who<br />is a Jain Sadhu?
+            </p>
+          </div>
+        </a>
+
+        <a href="topic-2.html" class="topic-card" id="topic-2">
+          <div class="card-bg">
+            <img src="assets/images/topic-image.png" alt="" />
+            <span class="topic-num" data-lang-key="num-2">2</span>
+            <p class="topic-text" data-lang-key="topic-2">
+              How does<br />a Jain Sadhu look?
+            </p>
+          </div>
+        </a>
+
+        <a href="topic-3.html" class="topic-card" id="topic-3">
+          <div class="card-bg">
+            <img src="assets/images/topic-image.png" alt="" />
+            <span class="topic-num" data-lang-key="num-3">3</span>
+            <p class="topic-text" data-lang-key="topic-3">
+              Why do<br />they take Diksha?
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Right Topics Group: topic-4, topic-5, topic-6 -->
+      <div class="topics-group topics-right">
+        <a href="topic-4.html" class="topic-card" id="topic-4">
+          <div class="card-bg">
+            <img src="assets/images/topic-image.png" alt="" />
+            <span class="topic-num" data-lang-key="num-4">4</span>
+            <p class="topic-text" data-lang-key="topic-4">
+              Where does<br />a Jain Sadhu Live?
+            </p>
+          </div>
+        </a>
+
+        <a href="topic-5.html" class="topic-card" id="topic-5">
+          <div class="card-bg">
+            <img src="assets/images/topic-image.png" alt="" />
+            <span class="topic-num" data-lang-key="num-5">5</span>
+            <p class="topic-text" data-lang-key="topic-5">
+              What does<br />a Jain Sadhu eat?
+            </p>
+          </div>
+        </a>
+
+        <a href="topic-6.html" class="topic-card" id="topic-6">
+          <div class="card-bg">
+            <img src="assets/images/topic-image.png" alt="" />
+            <span class="topic-num" data-lang-key="num-6">6</span>
+            <p class="topic-text" data-lang-key="topic-6">
+              What is<br />my duty?
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <script src="assets/js/app.js"></script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const pageLoadAudio = new Audio("./assets/audio/transition/5.mp3");
+
+          const englishAudio = new Audio("./assets/audio/Eng.mpeg");
+          const hindiAudio = new Audio("./assets/audio/Hin.mpeg");
+          const gujratiAudio = new Audio("./assets/audio/Guj.mpeg");
+
+          const homeAudio = new Audio("./assets/audio/pop.mp3");
+          const topicAudio = new Audio(
+            "./assets/audio/topic_home-btn_back-btn/3.mp3"
+          );
+
+          const allAudios = [
+            pageLoadAudio,
+            englishAudio,
+            hindiAudio,
+            gujratiAudio,
+            homeAudio,
+            topicAudio,
+          ];
+
+          allAudios.forEach((audio) => {
+            audio.preload = "auto";
+            audio.volume = 1;
+          });
+
+          function playAudio(audio) {
+            allAudios.forEach((item) => {
+              if (item !== audio) {
+                item.pause();
+                item.currentTime = 0;
+              }
+            });
+
+            audio.currentTime = 0;
+
+            const playPromise = audio.play();
+
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {
+                console.log("Audio blocked until user interaction.");
+              });
+            }
+          }
+
+          // Page load audio
+          playAudio(pageLoadAudio);
+
+          // Language button audio
+          const englishBtn = document.querySelector(".english-button");
+          const hindiBtn = document.querySelector(".hindi-button");
+          const gujratiBtn = document.querySelector(".gujrati-button");
+
+          if (englishBtn) {
+            englishBtn.addEventListener("click", () => {
+              playAudio(englishAudio);
+            });
+          }
+
+          if (hindiBtn) {
+            hindiBtn.addEventListener("click", () => {
+              playAudio(hindiAudio);
+            });
+          }
+
+          if (gujratiBtn) {
+            gujratiBtn.addEventListener("click", () => {
+              playAudio(gujratiAudio);
+            });
+          }
+
+          // Topic click audio
+          const topicCards = document.querySelectorAll(".topic-card");
+
+          topicCards.forEach((topic) => {
+            topic.addEventListener("click", (e) => {
+              e.preventDefault();
+
+              const href = topic.getAttribute("href");
+
+              playAudio(topicAudio);
+
+              setTimeout(() => {
+                if (href) {
+                  window.location.href = href;
+                }
+              }, 350);
+            });
+          });
+
+          // Home button audio
+          // This will work if your page has .home-btn or .home-button class.
+          const homeBtns = document.querySelectorAll(".home-btn, .home-button");
+
+          homeBtns.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              const link = btn.closest("a");
+              const href = link ? link.getAttribute("href") : btn.getAttribute("href");
+
+              if (href) {
+                e.preventDefault();
+                playAudio(homeAudio);
+
+                setTimeout(() => {
+                  window.location.href = href;
+                }, 300);
+              } else {
+                playAudio(homeAudio);
+              }
+            });
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,435 @@
+/* ============================================================
+   Topic page layout — Who is a Jain Sadhu?
+   Canvas : 1929 × 1080
+   Units  : vw / vh — no px
+   ============================================================ */
+
+/* ── Page wrapper ── */
+.page-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Header bar ── */
+.header-bar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.header-home,
+.header-lang,
+.topic-header .page-title,
+.topic-nav-btn,
+.swiper-controls .swiper-ctrl {
+  pointer-events: auto;
+}
+
+.header-lang {
+  margin-left: auto;
+}
+
+/* ── Main content layout ── */
+.main-content {
+  position: fixed;
+  inset: 2vw 0 0 0;
+  display: flex;
+}
+
+.content-left {
+  position: relative;
+  width: 42vw;
+  height:47vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-right {
+  position: relative;
+  width: 58vw;
+  flex: 1;
+  height: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── Shared media/image rules ── */
+.home-btn img,
+.topic-nav-btn img,
+.topic-hero-img,
+.stable-frame-img,
+.stable-caption-frame-img,
+.swiper-ctrl img,
+.slide-video,
+.slide-media {
+  display: block;
+}
+
+.home-btn img,
+.topic-nav-btn img,
+.stable-frame-img,
+.stable-caption-frame-img,
+.swiper-ctrl img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Home button ── */
+.home-btn {
+  position: fixed;
+  top: 2.5vh;
+  left: 1.5vw;
+  width: 4vw;
+  height: 4vw;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.home-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ── Topic header ── */
+.topic-header {
+  position: fixed;
+  top: 2vh;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5vw;
+  pointer-events: none;
+}
+
+.topic-header .page-title {
+  position: static;
+  font-size: 4vw !important;
+}
+
+/* ── Topic navigation arrows ── */
+.topic-nav-btn {
+  width: 2.8vw;
+  height: 2.8vw;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.topic-nav-btn:hover {
+  transform: scale(1.15);
+}
+
+/* ── Left hero ── */
+.topic-left-hero {
+  width: 40vw;
+  height: 40vw;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.topic-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+/* ── Swiper section ── */
+.swiper-section {
+  position: relative;
+  z-index: 10;
+  width: 80%;
+  height:40vw;
+  margin-top: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ── Stable frame + masked video area ── */
+.stable-frame {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 25vw;
+  height: 30vw;
+  transform: translateX(-50%);
+  z-index: 25;
+}
+
+/* video stays upfront */
+.stable-frame-mask {
+  top: 3.5vw;
+  left: 1.5vw;
+  position: absolute;
+  width: 22vw;
+  height: 22.9vw;
+  overflow: hidden;
+  z-index: 5;
+  isolation: isolate;
+  /* mask by same frame image */
+  -webkit-mask-image: url("../images/Group 5.png");
+  mask-image: url("../images/Group 5.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  object-fit: contain;
+
+}
+
+.stable-frame-img {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.topic-swiper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.topic-swiper .swiper-slide {
+  opacity: 0 !important;
+  transition: opacity 0.9s ease !important;
+}
+
+.topic-swiper .swiper-slide-active {
+  opacity: 1 !important;
+}
+
+.topic-swiper .swiper-wrapper,
+.topic-swiper .swiper-slide,
+.slide-inner,
+.slide-media-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.topic-swiper .swiper-slide,
+.slide-inner,
+.slide-media-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-inner,
+.slide-media-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-video,
+.slide-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Stable caption frame ── */
+.stable-caption-frame {
+  position: absolute;
+  left: 50%;
+  bottom: 4vw;
+  transform: translateX(-50%);
+  z-index: 40;
+  width: 45vw;
+  height: 8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background-image: url("./../images/Frame\ 3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.stable-caption-frame-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stable-caption-text-layer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 0 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-caption-text {
+  display: block;
+  width: 80%;
+  max-width: 100%;
+  margin: 0 auto;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.2;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  font-family: "BalooRegular", sans-serif;
+  font-size: 1.65vw;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.slide-caption-text.caption-fade-out {
+  opacity: 0;
+  transform: translateY(0.4vw);
+}
+
+.slide-caption-text.caption-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.caption-source-list {
+  display: none;
+}
+
+/* ── Pagination ── */
+.topic-pagination {
+   position: absolute !important;
+  left: 50% !important;
+  top: 36vw !important;
+  width: max-content !important;
+  z-index: 35;
+  text-align: center;
+  transform: translateX(-50%) !important;
+}
+
+.topic-pagination .swiper-pagination-bullet {
+  width: 0.7vw;
+  height: 0.7vw;
+  margin: 0 0.25vw !important;
+  border-radius: 1vw;
+  background: #a85c1a;
+  opacity: 0.45;
+}
+
+.topic-pagination .swiper-pagination-bullet-active {
+  background: #7b3b0f;
+  opacity: 1;
+}
+
+/* ── Controls ── */
+.swiper-controls {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.swiper-ctrl {
+  position: absolute;
+  top: 38%;
+  z-index: 101;
+  width: 3vw;
+  height: 3vw;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+  border:0.2vw solid white;
+  border-radius:50%;
+}
+
+.swiper-ctrl:hover{
+  background-color:white; 
+}
+.swiper-ctrl i{
+  color: white;
+  font-size: 2vw;
+}
+.swiper-ctrl:hover i{
+  color: #a85c1a;
+}
+.swiper-ctrl:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.swiper-ctrl-prev {
+  left: 1vw;
+}
+
+.swiper-ctrl-next {
+  right: 0;
+}
+
+.swiper-ctrl-prev img,
+.swiper-ctrl-next img {
+  width: 3vw !important;
+}
+
+.swiper-ctrl.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.swiper-ctrl.swiper-button-disabled:hover {
+  transform: translateY(-50%) scale(1);
+}
+
+/* ── Language-aware caption fonts ── */
+html[lang="Hindi"] .slide-caption-text {
+  font-family: "ITFDevanagari", serif;
+  font-size: 1.7vw;
+  line-height: 2.5vw;
+}
+
+html[lang="Gujarati"] .slide-caption-text {
+  font-family: "NotoSansGujarati", sans-serif;
+  font-size: 1.7vw;
+  font-weight: 700;
+    line-height: 2.5vw;
+}

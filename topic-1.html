@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="English">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who is a Jain Sadhu?</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/topic.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <style>
+      .page-title {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        animation-delay: none;
+      }
+
+      nav {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        animation-delay: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <!-- Background -->
+      <div class="bg-layer"></div>
+
+      <!-- Header -->
+      <div class="header-bar">
+        <!-- Home -->
+        <div class="header-home">
+          <a href="index.html" class="home-btn page-link">
+            <img src="assets/images/HOME.png" alt="Home" />
+          </a>
+        </div>
+
+        <!-- Topic Header -->
+        <div class="topic-header">
+          <div class="topic-nav topic-nav-left">
+            <a href="index.html" class="topic-nav-btn topic-nav-prev page-link">
+              <img src="assets/images/Vector-1.png" alt="Previous Topic" />
+            </a>
+          </div>
+
+          <div class="topic-title-wrap">
+            <h1 class="page-title" data-lang-key="topic-1">
+              Who is a Jain Sadhu?
+            </h1>
+          </div>
+
+          <div class="topic-nav topic-nav-right">
+            <a
+              href="topic-2.html"
+              class="topic-nav-btn topic-nav-next page-link"
+            >
+              <img src="assets/images/Vector-2.png" alt="Next Topic" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Language switcher -->
+        <div class="header-lang">
+          <nav>
+            <div class="navbar-language language-button-container">
+              <div class="english-button lang-active">E</div>
+              <div class="hindi-button">H</div>
+              <div class="gujrati-button">G</div>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Left Hero -->
+        <div class="content-left">
+          <div class="topic-left-hero">
+            <img
+              src="assets/images/hero-image.png"
+              alt="Jain Sadhu"
+              class="topic-hero-img"
+            />
+          </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="content-right">
+          <img
+            src="assets/images/wheel.png"
+            width="60%"
+            style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%)"
+            alt=""
+          />
+
+          <div class="swiper-section">
+            <!-- Stable frame with masked video -->
+            <div class="stable-frame">
+              <!-- frame image -->
+              <img
+                src="assets/images/Group 5.png"
+                alt="Main Frame"
+                class="stable-frame-img"
+              />
+
+              <!-- masked video area -->
+              <div class="stable-frame-mask">
+                <div class="swiper topic-swiper">
+                  <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                      <div class="slide-inner">
+                        <div class="slide-media-wrap">
+                          <video
+                            class="slide-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            autoplay
+                          >
+                            <source
+                              src="assets/videos/1.mp4"
+                              type="video/mp4"
+                            />
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                      <div class="slide-inner">
+                        <div class="slide-media-wrap">
+                          <video
+                            class="slide-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            autoplay
+                          >
+                            <source
+                              src="assets/videos/2.mp4"
+                              type="video/mp4"
+                            />
+                          </video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stable caption frame -->
+            <div class="stable-caption-frame" id="captionFrame">
+              <!-- <img
+                src="assets/images/Frame 3.png"
+                alt="Caption Frame"
+                class="stable-caption-frame-img"
+              /> -->
+
+              <div class="stable-caption-text-layer">
+                <span class="slide-caption-text" id="topicCaption"> </span>
+
+                <div class="caption-source-list" aria-hidden="true">
+                  <span
+                    class="caption-source-item"
+                    data-slide-index="0"
+                    data-lang-key="topic-1.1"
+                  >
+                  </span>
+
+                  <span
+                    class="caption-source-item"
+                    data-slide-index="1"
+                    data-lang-key="topic-1.2"
+                  >
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="swiper-pagination topic-pagination"></div>
+
+            <!-- Controls -->
+            <div class="swiper-controls">
+              <button
+                class="swiper-ctrl swiper-ctrl-prev"
+                aria-label="Previous slide"
+                type="button"
+              >
+                <i class="fa-solid fa-angle-left fa-xl"></i>
+              </button>
+
+              <button
+                class="swiper-ctrl swiper-ctrl-next"
+                aria-label="Next slide"
+                type="button"
+              >
+                <i class="fa-solid fa-angle-right fa-xl"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const englishAudio = new Audio("./assets/audio/Eng.mpeg");
+        const hindiAudio = new Audio("./assets/audio/Hin.mpeg");
+        const gujratiAudio = new Audio("./assets/audio/Guj.mpeg");
+
+        const homeAudio = new Audio("./assets/audio/pop.mp3");
+
+        const topicNavAudio = new Audio(
+          "./assets/audio/topic_home-btn_back-btn/9.mp3"
+        );
+
+        const swipeAudio = new Audio("./assets/audio/swipe/6.mp3");
+
+        const allAudios = [
+          englishAudio,
+          hindiAudio,
+          gujratiAudio,
+          homeAudio,
+          topicNavAudio,
+          swipeAudio,
+        ];
+
+        allAudios.forEach((audio) => {
+          audio.preload = "auto";
+          audio.volume = 1;
+        });
+
+        function stopOtherAudios(currentAudio) {
+          allAudios.forEach((audio) => {
+            if (audio !== currentAudio) {
+              audio.pause();
+              audio.currentTime = 0;
+            }
+          });
+        }
+
+        function playAudio(audio) {
+          stopOtherAudios(audio);
+          audio.currentTime = 0;
+
+          const playPromise = audio.play();
+
+          if (playPromise !== undefined) {
+            playPromise.catch((err) => {
+              console.log("Audio play blocked:", err.message);
+            });
+          }
+        }
+
+        function playAudioAndNavigate(e, audio, delay = 350) {
+          e.preventDefault();
+
+          const link = e.currentTarget;
+          const href = link.getAttribute("href");
+
+          playAudio(audio);
+
+          setTimeout(() => {
+            if (href) {
+              window.location.href = href;
+            }
+          }, delay);
+        }
+
+        // Language button audio
+        const englishBtn = document.querySelector(".english-button");
+        const hindiBtn = document.querySelector(".hindi-button");
+        const gujratiBtn = document.querySelector(".gujrati-button");
+
+        if (englishBtn) {
+          englishBtn.addEventListener("click", () => {
+            playAudio(englishAudio);
+          });
+        }
+
+        if (hindiBtn) {
+          hindiBtn.addEventListener("click", () => {
+            playAudio(hindiAudio);
+          });
+        }
+
+        if (gujratiBtn) {
+          gujratiBtn.addEventListener("click", () => {
+            playAudio(gujratiAudio);
+          });
+        }
+
+        // Home button audio
+        const homeBtn = document.querySelector(".home-btn");
+
+        if (homeBtn) {
+          homeBtn.addEventListener("click", (e) => {
+            playAudioAndNavigate(e, homeAudio, 300);
+          });
+        }
+
+        // Topic navigation previous / next audio
+        const topicNavBtns = document.querySelectorAll(".topic-nav-btn");
+
+        topicNavBtns.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            playAudioAndNavigate(e, topicNavAudio, 350);
+          });
+        });
+
+        // Swiper arrow navigation audio
+        const swiperPrevBtn = document.querySelector(".swiper-ctrl-prev");
+        const swiperNextBtn = document.querySelector(".swiper-ctrl-next");
+
+        if (swiperPrevBtn) {
+          swiperPrevBtn.addEventListener("click", () => {
+            playAudio(swipeAudio);
+          });
+        }
+
+        if (swiperNextBtn) {
+          swiperNextBtn.addEventListener("click", () => {
+            playAudio(swipeAudio);
+          });
+        }
+
+        // Optional: audio when user swipes by touch or mouse drag
+        const topicSwiperEl = document.querySelector(".topic-swiper");
+
+        if (topicSwiperEl) {
+          let startX = 0;
+          let endX = 0;
+
+          topicSwiperEl.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+          });
+
+          topicSwiperEl.addEventListener("touchend", (e) => {
+            endX = e.changedTouches[0].clientX;
+
+            if (Math.abs(startX - endX) > 50) {
+              playAudio(swipeAudio);
+            }
+          });
+
+          topicSwiperEl.addEventListener("mousedown", (e) => {
+            startX = e.clientX;
+          });
+
+          topicSwiperEl.addEventListener("mouseup", (e) => {
+            endX = e.clientX;
+
+            if (Math.abs(startX - endX) > 50) {
+              playAudio(swipeAudio);
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

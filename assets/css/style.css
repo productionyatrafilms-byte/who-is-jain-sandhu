@@ -1,0 +1,592 @@
+/* ============================================================
+   Who is a Jain Sadhu? — Homepage
+   Reference : projects/Environment/style.css
+   Canvas    : 1929 × 1080 px
+   Units     : vw / vh  — zero px allowed
+   ============================================================ */
+
+/* ── Fonts ── */
+
+/* English — Baloo (body / topic text / nav buttons) */
+@font-face {
+  font-family: "BalooRegular";
+  src: url("../../fonts/Baloo Regular 400.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Title — Lobster Two */
+@font-face {
+  font-family: "LobsterTwo";
+  src: url("../../fonts/LobsterTwo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LobsterTwo";
+  src: url("../../fonts/LobsterTwo-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ITFDevanagari";
+  src: url("../../fonts/ITFDevanagari.ttc") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansGujaratiRegular";
+  src: url("../../fonts/NotoSansGujarati-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Language-aware font switching (Environment pattern) ── */
+body[data-lang="hi"] {
+  font-family: "ITFDevanagari"!important;
+  font-weight: 700!important;
+}
+
+body[data-lang="gu"] {
+  font-family: "NotoSansGujaratiRegular"!important;
+  font-weight: 700!important;
+}
+
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "BalooRegular", sans-serif;
+  overflow: hidden;
+}
+
+/* ── Page-in animation (Environment pattern) ── */
+body {
+  opacity: 0;
+  transform: scale(0.985);
+  animation: pageIn 0s ease forwards;
+  display: flex;
+  flex-direction: column;
+  font-family: 'BalooRegular';
+  background-color: #fedb5b;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  transform: scale(0.985);
+  background-image: url("../images/background-image.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.background-layer {
+  position: absolute;
+  width: 60vw;
+  height: 25vw;
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+  top: 30vw;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.background-layer img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity 0.5s ease;
+}
+
+/* left image */
+.left-layer {
+  animation: moveLeftLayer 1.2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* right image */
+.right-layer {
+  animation: moveRightLayer 1.2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.container {
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+  animation: containerFadeIn 0.01s linear forwards;
+  animation-delay: 1s;
+}
+
+@keyframes moveLeftLayer {
+  from {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-50%, -50%) translateX(-12vw);
+    opacity: 0.6;
+  }
+}
+
+@keyframes moveRightLayer {
+  from {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-50%, -50%) translateX(12vw);
+    opacity: 0.6;
+  }
+}
+
+@keyframes containerFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 1;
+    transform: scale(0.985);
+    filter: blur(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Page-exit (used before navigating away) */
+body.page-exit {
+  animation: pageOut 0.01s cubic-bezier(0.22, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes pageOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+
+/* ============================================================
+   Hero image  —  centred Jain Sadhu illustration with arch
+   Figma: left 38.83%, right 38.83%, top 21.39vh, aspect 1101/1954
+   ============================================================ */
+.hero-image {
+  position: fixed;
+  left: 50vw;
+  /* right: 38.83vw; */
+  top: 28vw;
+  /* bottom: 0; */
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 5;
+  width: 39.5vw;
+  height: 39.5vw;
+  animation: heroScaleIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 1s;
+}
+
+@keyframes heroScaleIn {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.mascot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+}
+
+/* ============================================================
+   Language NAV  —  Environment reference pattern
+   Figma: right=2.96vw, top=2.87vh, width=7.93vw, height=5.28vh
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 2.87vh;
+  right: 2.96vw;
+  width: 7.93vw;
+  height: 5.28vh;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateX(10vw);
+  animation: navDropInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 1.3s;
+}
+
+@keyframes navDropInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(10vw);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+}
+
+/* pill container */
+.navbar-language {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 8.5vw !important;
+  min-width: 8.5vw !important;
+  max-width: 8.5vw !important;
+  height: 2.8vw;
+  padding: 0 0.3vw;
+  border: 0.15vw solid #ffffff;
+  border-radius: 50vw;
+  box-shadow: 0 0.37vh 0.37vh #a84412;
+  font-family: "BalooRegular", sans-serif;
+  transition: border-radius 0.35s ease;
+}
+
+/* individual buttons — Environment pattern */
+.navbar-language>div {
+  width: 2.2vw;
+  height: 2.2vw;
+  font-size: 1.7vw;
+  text-align: center;
+  line-height: 2.08vw;
+  border: 0.15vw solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+  font-family: "BalooRegular", sans-serif;
+  transition:
+    border-radius 0.35s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.navbar-language>div:hover {
+  background: white;
+  color: #9B4A23;
+}
+
+.navbar-language>div.lang-active {
+  background: white;
+  color: #9B4A23;
+}
+
+
+/* ============================================================
+   Page Title
+   Figma: top 2.96vh, Lobster Two, 96px (4.98vw), white, shadow
+   ============================================================ */
+.page-title {
+  position: fixed;
+  top: 2.96vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: "LobsterTwo", cursive;
+  font-size: 4.98vw;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 0.37vh 0.37vh #a84412;
+  white-space: nowrap;
+  line-height: normal;
+  z-index: 10;
+
+  opacity: 0;
+  transform: translateY(-8vh);
+  animation: titleDropIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 1.3s;
+}
+
+@keyframes titleDropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10vh);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   Topics Groups
+   Left : left=7.76vw, top=25vh, width=18.21vw, height=68.33vh
+   Right: right=8.04vw, same vertical
+   ============================================================ */
+.topics-group {
+  position: absolute;
+  top: 10vw;
+  width: 18.21vw;
+  height: 35vw;
+  z-index: 10;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: space-between;
+}
+
+.topics-left {
+  left: 7.76vw;
+  opacity: 0;
+  transform: translate3d(-15vw, 0, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  animation: topicLeftIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 1.3s;
+}
+
+@keyframes topicLeftIn {
+  from {
+    opacity: 0;
+    transform: translate3d(-15vw, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.topics-right {
+  right: 7.76vw;
+  transform: translate3d(15vw, 0, 0);
+  opacity: 0;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  animation: topicRightIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 1.3s;
+  z-index: 50;
+}
+
+@keyframes topicRightIn {
+  from {
+    opacity: 0;
+    transform: translate3d(15vw, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ============================================================
+   Topic cards  — absolutely positioned within their group
+   Height : 20.54vh (222px / 1080)
+   Gap    : card-2 offset 23.93vh, card-3 offset 47.79vh
+   card-bg <img> fills the card; text/badge sit on top via z-index
+   ============================================================ */
+.topic-card {
+  position: relative;
+  width: 100%;
+  height: 10.54vw;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center bottom;
+}
+
+.topic-card:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.topic-card:active {
+  transform: scale(0.97);
+}
+
+
+/* card-bg: flex column, centres badge + text vertically */
+.card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8vh;
+}
+
+/* background image sits behind flex children */
+.card-bg>img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  z-index: 0;
+}
+
+/* number badge — pinned to top-centre of card-bg */
+.topic-num {
+  position: absolute;
+  top: 0.5vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  border: 0.3vb solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "BalooRegular", sans-serif;
+  font-size: 1.4vw;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1;
+  padding: 0;
+  text-align: center;
+  background: transparent;
+  z-index: 1;
+}
+
+html[lang="Gujarati"] .topic-num {
+  font-weight: 700;
+}
+
+/* topic text — flex item, vertically centred within card-bg */
+.topic-text {
+  width: 13vw;
+  height: 5vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;  
+  margin-top: 1vw;
+  position: relative;
+  z-index: 1;
+  font-family: "BalooRegular", sans-serif;
+  font-size: 1.5vw;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 400;
+  white-space: pre-wrap;
+}
+
+/* Hindi / Gujarati topic text adjustments */
+html[lang="Hindi"] .topic-text {
+  font-family: "ITFDevanagari", serif;
+  font-size: 1.6vw;
+  line-height: 1.5;
+}
+
+html[lang="Gujarati"] .topic-text {
+  font-family: "NotoSansGujarati", sans-serif;
+  font-size: 1.6vw;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.pranam-link {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 1vw;
+  top: 42vw;
+  width: 10vw;
+  height: auto;
+  text-decoration: none;
+
+  animation: pranamPop 1.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.pranam-link img {
+  position: relative;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.pranam-link span {
+  position: absolute;
+  text-decoration: none;
+  color: white;
+  font-family: "LobsterTwo";
+  font-weight: bold;
+  font-size: 1.5vw;
+  padding-right: 2vw;
+}
+
+@keyframes pranamPop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
