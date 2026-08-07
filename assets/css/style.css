@@ -590,3 +590,22 @@ html[lang="Gujarati"] .topic-text {
     transform: scale(1);
   }
 }
+
+
+.pranam-video{
+    position: absolute;
+    left: 50%;
+    top: 47.8%;
+    transform: translate(-50%,-50%);
+    width: 28vw;
+    height: 28vw;
+    border-radius: 50%;
+background-color: white;
+  }
+
+  .pranam-video video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
