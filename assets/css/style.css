@@ -528,7 +528,7 @@ html[lang="Gujarati"] .topic-num {
   text-align: center;
   line-height: 1.4;
   font-weight: 400;
-  white-space: pre-wrap;
+  white-space: wrap;
 }
 
 /* Hindi / Gujarati topic text adjustments */
