@@ -312,7 +312,7 @@
   word-break: break-word;
   overflow-wrap: break-word;
   font-family: "BalooRegular", sans-serif;
-  font-size: 1.65vw;
+  font-size: 1.4vw;
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.45s ease, transform 0.45s ease;
@@ -423,13 +423,13 @@
 /* ── Language-aware caption fonts ── */
 html[lang="Hindi"] .slide-caption-text {
   font-family: "ITFDevanagari", serif;
-  font-size: 1.7vw;
-  line-height: 2.5vw;
+  font-size: 1.3vw;
+  line-height: 2.2vw;
 }
 
 html[lang="Gujarati"] .slide-caption-text {
   font-family: "NotoSansGujarati", sans-serif;
-  font-size: 1.7vw;
+  font-size: 1.3vw;
   font-weight: 700;
-    line-height: 2.5vw;
+    line-height: 2.2vw;
 }
