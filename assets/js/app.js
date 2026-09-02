@@ -50,9 +50,7 @@ window.addEventListener("resize", checkScreenSize);
     if (translations) return translations;
 
     try {
-      const res = await fetch("assets/json/data.json");
-      if (!res.ok) throw new Error("JSON not found");
-      translations = await res.json();
+      translations = typeof data !== "undefined" ? data : {};
     } catch (err) {
       console.warn("Translation load failed:", err);
       translations = {};
