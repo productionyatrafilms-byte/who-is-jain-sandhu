@@ -35,7 +35,7 @@
 
 @font-face {
   font-family: "ITFDevanagari";
-  src: url("../../fonts/ITFDevanagari.ttc") format("truetype");
+  src: url("../../fonts/ITFDevanagari-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -250,16 +250,14 @@ body.page-exit {
    ============================================================ */
 nav {
   position: fixed;
-  top: 2.87vh;
-  right: 2.96vw;
+  top: 1vw;
+  right: 3vw;
   width: 7.93vw;
   height: 5.28vh;
   z-index: 30;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  opacity: 0;
-  transform: translateX(10vw);
   animation: navDropInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 1.3s;
 }

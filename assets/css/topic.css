@@ -28,15 +28,10 @@
 }
 
 .header-home,
-.header-lang,
 .topic-header .page-title,
 .topic-nav-btn,
 .swiper-controls .swiper-ctrl {
   pointer-events: auto;
-}
-
-.header-lang {
-  margin-left: auto;
 }
 
 /* ── Main content layout ── */
@@ -111,8 +106,8 @@
 .topic-header {
   position: fixed;
   top: 2vh;
-  left: 0;
-  right: 0;
+  left: 7vw;
+  right: 13vw;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -121,9 +116,17 @@
   pointer-events: none;
 }
 
+.topic-title-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
 .topic-header .page-title {
   position: static;
-  font-size: 4vw !important;
+  font-size: 3.4vw !important;
+  white-space: normal;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 /* ── Topic navigation arrows ── */
