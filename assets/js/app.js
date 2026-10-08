@@ -287,9 +287,27 @@ window.addEventListener("resize", checkScreenSize);
       activeVideo.play().catch(() => {});
     }
 
+    // Only the active slide's video loads fully; every other slide stays unloaded
+    function syncVideoPreload(swiper) {
+      allVideos.forEach((video, index) => {
+        if (index === swiper.activeIndex) {
+          if (video.preload !== "auto") {
+            video.preload = "auto";
+
+            // changing preload alone may not start a download, so force one
+            // if the active slide has no frame yet
+            if (video.readyState < 2) video.load();
+          }
+        } else {
+          video.preload = "none";
+        }
+      });
+    }
+
     function initFirstSlide(swiper) {
       updateNavButtons(swiper);
       updateTopicCaption(swiper.activeIndex);
+      syncVideoPreload(swiper);
       pauseAllVideos();
       playActiveVideo(swiper);
     }
@@ -321,6 +339,7 @@ window.addEventListener("resize", checkScreenSize);
         },
         slideChangeTransitionStart() {
           updateNavButtons(this);
+          syncVideoPreload(this);
           updateTopicCaptionWithFade(this.activeIndex);
         },
         slideChangeTransitionEnd() {

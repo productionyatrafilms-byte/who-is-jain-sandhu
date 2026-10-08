@@ -10,7 +10,7 @@
 /* English — Baloo (body / topic text / nav buttons) */
 @font-face {
   font-family: "BalooRegular";
-  src: url("../../fonts/Baloo Regular 400.ttf") format("truetype");
+  src: url("../../fonts/Baloo-Regular-400.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
