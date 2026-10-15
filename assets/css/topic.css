@@ -39,6 +39,9 @@
   position: fixed;
   inset: 2vw 0 0 0;
   display: flex;
+  /* the visible content (hero + frame + caption) is ~38vw tall and sits ~6.4vw..44.4vw from the top of the page;
+     in taller windows (full screen) push it down so that span is centred vertically.  */
+  transform: translateY(max(0px, calc(50vh - 25.76vw)));
 }
 
 .content-left {
@@ -148,8 +151,9 @@
 
 /* ── Left hero ── */
 .topic-left-hero {
-  width: 40vw;
-  height: 40vw;
+  width: 34vw;
+  height: 34vw;
+  transform: translateX(3vw);
   z-index: 5;
   display: flex;
   align-items: flex-end;
@@ -178,21 +182,21 @@
 /* ── Stable frame + masked video area ── */
 .stable-frame {
   position: absolute;
-  top: 0;
+  top: -1.1vw;
   left: 50%;
-  width: 25vw;
-  height: 30vw;
+  width: 27.2vw;
+  height: 32.64vw;
   transform: translateX(-50%);
   z-index: 25;
 }
 
 /* video stays upfront */
 .stable-frame-mask {
-  top: 3.5vw;
-  left: 1.5vw;
+  top: 3.81vw;
+  left: 1.63vw;
   position: absolute;
-  width: 22vw;
-  height: 22.9vw;
+  width: 23.94vw;
+  height: 24.92vw;
   overflow: hidden;
   z-index: 5;
   isolation: isolate;
@@ -274,7 +278,7 @@
 .stable-caption-frame {
   position: absolute;
   left: 50%;
-  bottom: 4vw;
+  bottom: 2.4vw;
   transform: translateX(-50%);
   z-index: 40;
   width: 45vw;
@@ -319,7 +323,7 @@
   word-break: break-word;
   overflow-wrap: break-word;
   font-family: "BalooRegular", sans-serif;
-  font-size: 1.4vw;
+  font-size: 1.6vw;
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.45s ease, transform 0.45s ease;
@@ -339,8 +343,9 @@
   display: none;
 }
 
-/* ── Pagination ── */
+/* ── Pagination (hidden; kept in the markup so Swiper's config stays intact) ── */
 .topic-pagination {
+  display: none !important;
    position: absolute !important;
   left: 50% !important;
   top: 36vw !important;
@@ -430,13 +435,82 @@
 /* ── Language-aware caption fonts ── */
 html[lang="Hindi"] .slide-caption-text {
   font-family: "ITFDevanagari", serif;
-  font-size: 1.3vw;
-  line-height: 2.2vw;
+  font-size: 1.5vw;
+  line-height: 2.5vw;
 }
 
 html[lang="Gujarati"] .slide-caption-text {
   font-family: "NotoSansGujarati", sans-serif;
-  font-size: 1.3vw;
+  font-size: 1.5vw;
   font-weight: 700;
-    line-height: 2.2vw;
+    line-height: 2.5vw;
+}
+
+/* ── Side topic navigation (vertical track on the right edge) ── */
+.side-topic-nav {
+  position: fixed;
+  left: 2.4vw;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  width: 3.7vw;
+  padding: 0.9vw 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vw;
+  background: #ffd35a;
+  border: 0.16vw solid #fff;
+  border-radius: 2.7vw;
+}
+
+.side-topic-item {
+  position: relative;
+}
+
+.side-topic-nav .side-topic-dot {
+  position: relative;
+  z-index: 51;
+  width: 3.07vw;
+  height: 3.07vw;
+  border-radius: 50%;
+  background: #802922;
+  color: #fff;
+  font-size: 1.6vw;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.side-topic-nav .side-topic-dot:hover,
+.side-topic-nav .side-topic-dot.is-active {
+  background: #f7c4b7;
+  color: #802922;
+}
+
+/* pill tray: hidden by default, slides out to the right on hover */
+.side-topic-label {
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  z-index: 50;
+  transform: translate(-0.5vw, -50%);
+  background: #fff;
+  color: #9b381d;
+  font-size: 1.2vw;
+  white-space: nowrap;
+  padding: 1.2vw 1.2vw 1.2vw 2.4vw;
+  border-radius: 2vw;
+  box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.side-topic-item:hover .side-topic-label {
+  opacity: 1;
+  transform: translate(0, -50%);
 }
