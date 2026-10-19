@@ -8,11 +8,36 @@
    Units  : vw / vh — no px
    ============================================================ */
 
+/* ── Page scroll ──
+   Same technique as the Saraswati page: the page scrolls vertically only when
+   the content is taller than the window (short windows), with the scrollbar hidden. */
+html {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* html stays visible so the body's overflow becomes the window's scroll */
+html {
+  overflow: visible;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  background-attachment: fixed;
+}
+
 /* ── Page wrapper ── */
 .page-wrapper {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  /* at least the window height, but never shorter than the content (~46.2vw): in a short window
+     the page scrolls to show the rest instead of clipping it */
+  height: max(100vh, 46.2vw);
   overflow: hidden;
 }
 
@@ -36,7 +61,7 @@
 
 /* ── Main content layout ── */
 .main-content {
-  position: fixed;
+  position: absolute;
   inset: 2vw 0 0 0;
   display: flex;
   /* the visible content (hero + frame + caption) is ~38vw tall and sits ~6.4vw..44.4vw from the top of the page;
@@ -153,7 +178,7 @@
 .topic-left-hero {
   position: relative;
   width: 32vw;
-  height: 40vw;
+  height: auto;
   transform: translateX(3vw);
   z-index: 5;
   display: flex;
@@ -163,7 +188,7 @@
 
 .topic-hero-img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   object-position: bottom center;
 }
