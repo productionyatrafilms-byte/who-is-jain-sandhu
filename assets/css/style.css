@@ -545,11 +545,10 @@ html[lang="Gujarati"] .topic-text {
 
 .pranam-link {
   position: absolute;
-  display: flex;
   justify-content: center;
   align-items: center;
   right: 1vw;
-  top: 42vw;
+  top: 32vw;
   width: 10vw;
   height: auto;
   text-decoration: none;

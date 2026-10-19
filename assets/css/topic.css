@@ -41,7 +41,7 @@
   display: flex;
   /* the visible content (hero + frame + caption) is ~38vw tall and sits ~6.4vw..44.4vw from the top of the page;
      in taller windows (full screen) push it down so that span is centred vertically.  */
-  transform: translateY(max(0px, calc(50vh - 25.76vw)));
+  transform: translateY(max(0px, calc(50vh - 24.19vw)));
 }
 
 .content-left {
@@ -151,6 +151,7 @@
 
 /* ── Left hero ── */
 .topic-left-hero {
+  position: relative;
   width: 34vw;
   height: 34vw;
   transform: translateX(3vw);
@@ -182,21 +183,21 @@
 /* ── Stable frame + masked video area ── */
 .stable-frame {
   position: absolute;
-  top: -1.1vw;
+  top: -5.2vw;
   left: 50%;
-  width: 27.2vw;
-  height: 32.64vw;
+  width: 31.5vw;
+  height: 37.8vw;
   transform: translateX(-50%);
   z-index: 25;
 }
 
 /* video stays upfront */
 .stable-frame-mask {
-  top: 3.81vw;
-  left: 1.63vw;
+  top: 4.41vw;
+  left: 1.88vw;
   position: absolute;
-  width: 23.94vw;
-  height: 24.92vw;
+  width: 27.72vw;
+  height: 28.9vw;
   overflow: hidden;
   z-index: 5;
   isolation: isolate;
@@ -278,7 +279,7 @@
 .stable-caption-frame {
   position: absolute;
   left: 50%;
-  bottom: 2.4vw;
+  bottom: 1.4vw;
   transform: translateX(-50%);
   z-index: 40;
   width: 45vw;
@@ -446,71 +447,75 @@ html[lang="Gujarati"] .slide-caption-text {
     line-height: 2.5vw;
 }
 
-/* ── Side topic navigation (vertical track on the right edge) ── */
-.side-topic-nav {
-  position: fixed;
-  left: 2.4vw;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 40;
-  width: 3.7vw;
-  padding: 0.9vw 0;
+/* ── Current point by the sadhu's legs, with prev / next point arrows ── */
+.inner-active {
+  position: absolute;
+  left: 50%;
+  bottom: 2vw;
+  transform: translateX(-50%);
+  z-index: 20;
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 1vw;
-  background: #ffd35a;
-  border: 0.16vw solid #fff;
-  border-radius: 2.7vw;
 }
 
-.side-topic-item {
-  position: relative;
+.inner-active .topic-card {
+  width: 18vw;
+  height: 10.45vw;
+  flex-shrink: 0;
+  transform-origin: center;
+  filter: drop-shadow(0 0 0.5vw rgba(255, 255, 255, 0.9));
+  cursor: default;
 }
 
-.side-topic-nav .side-topic-dot {
-  position: relative;
-  z-index: 51;
-  width: 3.07vw;
-  height: 3.07vw;
+.inner-active .topic-card:hover,
+.inner-active .topic-card:active {
+  transform: none;
+}
+
+.inner-active .topic-num {
+  top: 0.6vw;
+  width: 2.1vw;
+  height: 2.1vw;
+  font-size: 1.55vw;
+  border-width: 0.12vw;
+}
+
+.inner-active .topic-text,
+html[lang="Hindi"] .inner-active .topic-text,
+html[lang="Gujarati"] .inner-active .topic-text {
+  width: 14.8vw;
+  height: 5.9vw;
+  margin-top: 1.4vw;
+  font-size: 1.6vw;
+  line-height: 1.25;
+}
+
+.inner-arrow {
+  width: 3vw;
+  height: 3vw;
+  flex-shrink: 0;
+  border: 0.2vw solid #fff;
   border-radius: 50%;
-  background: #802922;
+  background: rgba(168, 92, 26, 0.55);
   color: #fff;
   font-size: 1.6vw;
-  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: background 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.side-topic-nav .side-topic-dot:hover,
-.side-topic-nav .side-topic-dot.is-active {
-  background: #f7c4b7;
-  color: #802922;
-}
-
-/* pill tray: hidden by default, slides out to the right on hover */
-.side-topic-label {
-  position: absolute;
-  left: 55%;
-  top: 50%;
-  z-index: 50;
-  transform: translate(-0.5vw, -50%);
+.inner-arrow:hover {
   background: #fff;
-  color: #9b381d;
-  font-size: 1.2vw;
-  white-space: nowrap;
-  padding: 1.2vw 1.2vw 1.2vw 2.4vw;
-  border-radius: 2vw;
-  box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.25);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  color: #a85c1a;
+  transform: scale(1.1);
 }
 
-.side-topic-item:hover .side-topic-label {
-  opacity: 1;
-  transform: translate(0, -50%);
+/* last point has no "next": keep the card centred with an empty slot */
+.inner-arrow-off {
+  visibility: hidden;
+  pointer-events: none;
 }

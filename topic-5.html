@@ -45,16 +45,7 @@
           <img src="assets/images/HOME.png" alt="Home" />
         </a>
       </div>
-
-      <!-- Topic Header -->
-      <div class="topic-header">
-        <div class="topic-title-wrap">
-          <h1 class="page-title" data-lang-key="topic-5"></h1>
-        </div>
-
       </div>
-
-    </div>
 
     <!-- Language switcher -->
     <nav>
@@ -65,40 +56,28 @@
       </div>
     </nav>
 
-    <!-- Side topic navigation: jump between the 6 sub-points -->
-    <div class="side-topic-nav">
-      <div class="side-topic-item">
-        <a href="topic-1.html" class="side-topic-dot topic-nav-btn page-link" data-lang-key="num-1">1</a>
-        <span class="side-topic-label" data-lang-key="topic-1"></span>
-      </div>
-      <div class="side-topic-item">
-        <a href="topic-2.html" class="side-topic-dot topic-nav-btn page-link" data-lang-key="num-2">2</a>
-        <span class="side-topic-label" data-lang-key="topic-2"></span>
-      </div>
-      <div class="side-topic-item">
-        <a href="topic-3.html" class="side-topic-dot topic-nav-btn page-link" data-lang-key="num-3">3</a>
-        <span class="side-topic-label" data-lang-key="topic-3"></span>
-      </div>
-      <div class="side-topic-item">
-        <a href="topic-4.html" class="side-topic-dot topic-nav-btn page-link" data-lang-key="num-4">4</a>
-        <span class="side-topic-label" data-lang-key="topic-4"></span>
-      </div>
-      <div class="side-topic-item">
-        <a href="topic-5.html" class="side-topic-dot topic-nav-btn page-link is-active" data-lang-key="num-5">5</a>
-        <span class="side-topic-label" data-lang-key="topic-5"></span>
-      </div>
-      <div class="side-topic-item">
-        <a href="topic-6.html" class="side-topic-dot topic-nav-btn page-link" data-lang-key="num-6">6</a>
-        <span class="side-topic-label" data-lang-key="topic-6"></span>
-      </div>
-    </div>
-
     <!-- Main Content -->
     <div class="main-content">
       <!-- Left Hero -->
       <div class="content-left">
         <div class="topic-left-hero">
           <img src="assets/images/hero-image.png" alt="Jain Sadhu" class="topic-hero-img" />
+          <!-- Current point, shown by the sadhu's legs, with arrows to the previous / next point -->
+          <div class="inner-active">
+            <a href="topic-4.html" class="inner-arrow inner-topic-link page-link" aria-label="Previous point">
+              <i class="fa-solid fa-angle-left"></i>
+            </a>
+            <div class="topic-card is-active">
+              <div class="card-bg">
+                <img src="assets/images/topic-image.png" alt="" />
+                <span class="topic-num" data-lang-key="num-5">5</span>
+                <p class="topic-text" data-lang-key="topic-5">What does Jain Sadhu<br />Bhagwant consume?</p>
+              </div>
+            </div>
+            <a href="topic-6.html" class="inner-arrow inner-topic-link page-link" aria-label="Next point">
+              <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -292,7 +271,7 @@
       }
 
       // Topic navigation previous / next audio
-      const topicNavBtns = document.querySelectorAll(".topic-nav-btn");
+      const topicNavBtns = document.querySelectorAll(".topic-nav-btn, .inner-topic-link");
 
       topicNavBtns.forEach((btn) => {
         btn.addEventListener("click", (e) => {
