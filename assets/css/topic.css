@@ -152,8 +152,8 @@
 /* ── Left hero ── */
 .topic-left-hero {
   position: relative;
-  width: 34vw;
-  height: 34vw;
+  width: 32vw;
+  height: 40vw;
   transform: translateX(3vw);
   z-index: 5;
   display: flex;
